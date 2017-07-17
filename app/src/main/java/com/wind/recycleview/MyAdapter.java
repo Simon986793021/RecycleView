@@ -14,10 +14,10 @@ import java.util.List;
  */
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements View.OnClickListener {
-    private String [] data;
-    public MyAdapter(String[] data)
+    private List<String> list;
+    public MyAdapter(List<String> list)
     {
-        this.data=data;
+        this.list=list;
     }
     private OnItemClickListener onItemClickListener=null;
     public  interface OnItemClickListener{
@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // 绑定数据
-        holder.textView.setText(data [position]);
+        holder.textView.setText(list.get(position));
         holder.itemView.setTag(position);
     }
 
@@ -42,11 +42,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
     @Override
     public int getItemCount() {
-        Log.i(">>>>>>",data.length+"");
-        return data == null ? 0 : data.length;
+        return list == null ? 0 : list.size();
 
     }
 
+    public void addItem()
+    {
+        list.add(0,"新增的Item");
+        notifyItemInserted(0);
+    }
+    public void deleteItem()
+    {
+        if (list==null)
+        {
+            return;
+        }
+        list.remove(0);
+        notifyItemRemoved(0);
+    }
 
     @Override
     public void onClick(View v) {

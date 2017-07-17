@@ -5,6 +5,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.wind.recycleview.MainActivity">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/bt_add"
+        android:text="添加Item"
+        android:textSize="35sp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/bt_delete"
+        android:text="删除Item"
+        android:textSize="35sp"
+        />
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
