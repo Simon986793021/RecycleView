@@ -9,13 +9,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private String [] city=new String[] {"北京","上海","广州","深圳"};
+    private String [] city=new String[] {"北京","上海","广州","深圳","杭州","南京","重庆","武汉","天津","哈尔滨"};
     private LinearLayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView= (RecyclerView) findViewById(R.id.rv_city);
+        recyclerView.addItemDecoration(new MyDividerItemDecoration(MainActivity.this));
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
