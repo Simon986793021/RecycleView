@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setHasFixedSize(true);
         adapter=new MyAdapter(getData());
 
         recyclerView.setAdapter(adapter);

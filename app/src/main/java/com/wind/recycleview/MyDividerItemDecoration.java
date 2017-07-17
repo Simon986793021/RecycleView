@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,11 +16,11 @@ import android.view.View;
 
 public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
     private Drawable drawable;
-    private final int[] ATTR=new int[]{android.R.attr.listDivider};
+    //private final int[] ATTR=new int[]{R.};
     public MyDividerItemDecoration (Context context){
-        final TypedArray typedArray=context.obtainStyledAttributes(ATTR);
-        drawable=typedArray.getDrawable(0);
-        typedArray.recycle();
+       // final TypedArray typedArray=context.obtainStyledAttributes(ATTR);
+        drawable= ContextCompat.getDrawable(context,R.drawable.dividerline);
+       // typedArray.recycle();
     }
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
